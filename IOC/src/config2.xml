@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="stu" class="com.ioc.demo.Student"/>
+	<bean id="stu" class="com.ioc.demo.Student">
+		<!-- Simple types -->
+	   <property name="name" value="Anu"/>
+	   <property name="sid" value="10"/>
+	   <property name="phoneNo" value="1234"/>
+	  <!-- List of Simple types -->
+	  <property name="emails">
+	  <list>
+	  	<value>shail@gmail.com</value>
+	  	<value>anu@gmail.com</value>
+	  </list>
+	  </property>
+	  <!-- Set of Simple types -->
+	  <property name="subjects">
+	  <set>
+	  <value>O.S</value>
+	  <value>DBMS</value>
+	  <value>Java</value>
+	  </set>
+	  </property>
+	  <!-- Map of Simple types -->
+	  <property name="profile">
+	  <map>
+	  <entry key="1" value="Shail"/>
+	  <entry key="2" value="Molu"/>
+	  <entry key="3" value="Shradha"/>
+	  </map>
+	  </property>
+	  <!-- Properties of Simple types -->
+	  <property name="myProps">
+	  <props>
+	  <prop key="101">Java</prop>
+	  <prop key="102">Spring</prop>
+	  <prop key="103">MySQL</prop>
+	  </props>
+	  </property>
+	  <!-- Reference bean type -->
+	  <property name="address" ref="add"/>
+	  <!-- List of Reference bean type -->
+	  <property name="courses">
+	  <list>
+	  <ref bean="co"/>
+	  </list>
+	  </property>
+		</bean>
+		<bean id="add" class="com.ioc.demo.Address">
+		<property name="city" value="Bhopal"/>
+		<property name="state" value="M.P"/>
+	  </bean>
+	  <bean id="co" class="com.ioc.demo.Course">
+	  <property name="courseId" value="111"/>
+	  <property name="subject" value="Servlet"/>
+	  </bean>
+	  <bean id="col" class="com.ioc.demo.College" autowire="byType">
+  	</bean>
+	  
+</beans>

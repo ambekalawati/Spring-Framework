@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="emp" class="com.ioc.demo.Employee" scope="prototype" lazy-init="default">
+
+<constructor-arg value="101"/>
+<constructor-arg value="Shail"/>
+ 
+<constructor-arg>
+<list>
+<value>anu@gmail.com</value>
+<value>kala@gmail.com</value>
+</list>
+</constructor-arg>
+<constructor-arg ref="add"/>
+<constructor-arg>
+<list>
+<ref bean="dept"/>
+</list>
+</constructor-arg>
+<constructor-arg>
+<props>
+<prop key="333">XYZ</prop>
+<prop key="444">ABC</prop>
+</props>
+</constructor-arg>
+<constructor-arg>
+<set>
+<value>Quiz Portal</value>
+<value>Gaming</value>
+</set>
+</constructor-arg>
+<constructor-arg>
+<map>
+<entry key="666" value="HR"/>
+<entry key="999" value="Manager"/>
+</map>
+</constructor-arg>
+</bean>
+<bean id="add" class="com.ioc.demo.Address">
+<property name="city" value="Patna"/>
+<property name="state" value="Bihar"/>
+</bean>	
+<bean id="dept" class="com.ioc.demo.Department">
+<property name="deptId" value="999"/>
+<property name="deptName" value="civil"></property>
+</bean>
+<bean id="emp1" class="com.ioc.demo.Employee">
+
+<constructor-arg value="101"/>
+<constructor-arg value="Shail"/>
+ 
+<constructor-arg>
+<list>
+<value>anjali@gmail.com</value>
+<value>shradha@gmail.com</value>
+</list>
+</constructor-arg>
+<constructor-arg ref="add1"/>
+<constructor-arg>
+<list>
+<ref bean="dept1"/>
+</list>
+</constructor-arg>
+<constructor-arg>
+<props>
+<prop key="666">XYZ</prop>
+<prop key="888">ABC</prop>
+</props>
+</constructor-arg>
+<constructor-arg>
+<set>
+<value>Website Designing</value>
+<value>Testing</value>
+</set>
+</constructor-arg>
+<constructor-arg>
+<map>
+<entry key="000" value="Developer"/>
+<entry key="888" value="Tester"/>
+</map>
+</constructor-arg>
+</bean>
+<bean id="add1" class="com.ioc.demo.Address">
+<property name="city" value="Bhopal"/>
+<property name="state" value="M.P"/>
+</bean>	
+<bean id="dept1" class="com.ioc.demo.Department">
+<property name="deptId" value="555"/>
+<property name="deptName" value="M.E"></property>
+</bean>
+</beans>
